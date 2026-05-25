@@ -1,0 +1,29 @@
+[package]
+name = "mcp-browser"
+version = "1.0.0"
+edition = "2024"
+authors = ["James Karanja <james.karanja@zavora.ai>"]
+description = "Browser MCP Server — web scraping, screenshots, interactions, markdown extraction, accessibility trees for AI agents"
+license = "Apache-2.0"
+repository = "https://github.com/zavora-ai/mcp-browser"
+homepage = "https://enterprise.adk-rust.com"
+keywords = ["mcp", "browser", "scraping", "chrome", "headless"]
+categories = ["development-tools"]
+readme = "README.md"
+
+[dependencies]
+adk-mcp-sdk = "0.1"
+rmcp = { version = "1.7", features = ["server", "transport-io", "macros"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+anyhow = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+schemars = "1"
+headless_chrome = { version = "1.0", features = ["fetch"] }
+scraper = "0.22"
+reqwest = { version = "0.12", features = ["rustls-tls"], default-features = false }
+base64 = "0.22"
+
+[workspace]
