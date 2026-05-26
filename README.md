@@ -2,7 +2,7 @@
 
 [![Crates.io](https://img.shields.io/crates/v/mcp-browser.svg)](https://crates.io/crates/mcp-browser)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![ADK-Rust Enterprise](https://img.shields.io/badge/ADK--Rust-Enterprise-purple.svg)](https://enterprise.adk-rust.com)
+[![ADK-Rust Enterprise](https://img.shields.io/badge/ADK--Rust-Enterprise-purple.svg)](https://www.zavora.ai)
 
 Web browsing and scraping for AI agents — read pages as clean text, take screenshots, extract structured data, interact with forms, and get accessibility trees. **17 tools** powered by headless Chrome via native CDP (Chrome DevTools Protocol).
 
@@ -47,35 +47,7 @@ cargo build --release
 
 No environment variables or API keys required. Chrome is managed automatically.
 
-## Architecture
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                      MCP Client (Agent)                        │
-└──────────────────────────┬───────────────────────────────────┘
-                           │ stdio (JSON-RPC 2.0)
-┌──────────────────────────▼───────────────────────────────────┐
-│                     mcp-browser server                         │
-│                                                               │
-│  ┌─────────────────────────────────────────────────────────┐ │
-│  │                    Tool Router (17 tools)                 │ │
-│  └────────┬──────────────────────────────────┬─────────────┘ │
-│           │                                  │               │
-│  ┌────────▼────────┐              ┌─────────▼──────────┐    │
-│  │  BrowserEngine   │              │  Lightweight HTTP   │    │
-│  │  (headless_chrome)│              │  (reqwest)          │    │
-│  └────────┬─────────┘              └─────────┬──────────┘    │
-└───────────┼──────────────────────────────────┼───────────────┘
-            │ CDP                               │ HTTP
-┌───────────▼──────────┐             ┌─────────▼──────────┐
-│  Chromium (headless)  │             │   Target website    │
-│  - JS execution       │             │   (simple pages)    │
-│  - DOM rendering      │             └────────────────────┘
-│  - Screenshots        │
-│  - PDF generation     │
-│  - Accessibility tree │
-└───────────────────────┘
-```
 
 ## Tools (17)
 
@@ -384,4 +356,4 @@ The default navigation timeout is 30s. For very slow pages, use `fetch_light` wh
 
 ## License
 
-Apache-2.0 — Part of [ADK-Rust Enterprise](https://enterprise.adk-rust.com)
+Apache-2.0 — Part of [ADK-Rust Enterprise](https://www.zavora.ai)
