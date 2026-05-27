@@ -1,6 +1,6 @@
 [package]
 name = "mcp-browser"
-version = "1.0.0"
+version = "1.0.2"
 edition = "2024"
 authors = ["James Karanja <james.karanja@zavora.ai>"]
 description = "Browser MCP Server — web scraping, screenshots, interactions, markdown extraction, accessibility trees for AI agents"
