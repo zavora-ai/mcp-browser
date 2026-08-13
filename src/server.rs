@@ -33,7 +33,7 @@ fn run_blocking<F, T>(f: F) -> T where F: FnOnce() -> T + Send + 'static, T: Sen
     std::thread::spawn(f).join().unwrap()
 }
 
-#[tool_router(server_handler)]
+#[tool_router]
 impl BrowserServer {
     // === Read & Extract (7) ===
 
@@ -289,4 +289,11 @@ impl BrowserServer {
             Err(e) => format!("Error: {}", e),
         }
     }
+}
+
+adk_mcp_sdk::mcp_2026_server! {
+    server: BrowserServer,
+    task_tools: ["screenshot", "screenshot_element"],
+    approval_tools: [],
+    cache_ttl_ms: 60_000,
 }
